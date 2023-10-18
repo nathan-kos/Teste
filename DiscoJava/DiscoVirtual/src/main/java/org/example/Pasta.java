@@ -42,6 +42,11 @@ public class Pasta implements ItemArmazenamento {
 
     @Override
     public void apagar() {
+
+        if(pastaPai == null){
+            throw new IllegalArgumentException("Não é possível apagar a raiz");
+        }
+
         List<ItemArmazenamento> copia = new ArrayList<>(this.itens);
 
         for (ItemArmazenamento item : copia) {
