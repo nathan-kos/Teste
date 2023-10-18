@@ -1,0 +1,34 @@
+@startuml disco_virtual
+
+    interface Item{
+        + apagar(): void
+        + getTamanho(): long
+        + addItem(Item item): boolean
+        + removeItem(): boolean
+        + getItens(): collections<Item>
+    }
+
+    class Pasta{
+        - string nome 
+        - Item pastaPai
+    }
+
+    class Arquivo{
+        - string nome
+        - long tamanho
+        - string caminho
+    }
+
+    class DiscoVirtual{
+        - Pasta raiz
+        + getRaiz(): Item
+    }
+
+    Pasta ..|>  Item
+    Arquivo ..|>  Item
+
+    
+    Pasta o-- Arquivo: 0..*
+    Pasta  o--  Pasta: 0..*
+
+@enduml
