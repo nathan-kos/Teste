@@ -42,13 +42,18 @@ public class Pasta implements ItemArmazenamento {
 
     @Override
     public void apagar() {
+        List<ItemArmazenamento> copia = new ArrayList<>(this.itens);
 
-        if(itens.isEmpty()){
-            this.pastaPai.remove(this);
-        }else{
-            for (ItemArmazenamento item : this.itens) {
+        for (ItemArmazenamento item : copia) {
+            if (item instanceof Arquivo) {
+                this.remove(item);
+            } else {
                 item.apagar();
             }
+        }
+
+        if (itens.isEmpty()) {
+            this.pastaPai.remove(this);
         }
     }
 
@@ -74,7 +79,7 @@ public class Pasta implements ItemArmazenamento {
             if(item instanceof Arquivo){
                 tamanho += item.getTamanhoKB();
             }else{
-                tamanho += ((Pasta)item).getTamanhoKB();
+                tamanho += item.getTamanhoKB();
             }
         }
         return tamanho;
