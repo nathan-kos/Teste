@@ -37,5 +37,14 @@ public class Main {
 
         System.out.println(pasta2.getItens());
 
+        Arquivo arquivo = new Arquivo("arquivo", "C:\\Users\\natha\\Downloads\\jm-PadroesdeProjeto.pdf", pasta2);
+
+        pasta2.add(arquivo);
+
+        System.out.println(pasta2.getItens());
+
+        pasta2.remove(arquivo);
+
+        System.out.println(pasta2.getItens());
     }
 }
