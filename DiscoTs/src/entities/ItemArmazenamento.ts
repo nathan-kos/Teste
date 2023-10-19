@@ -1,17 +1,13 @@
-
-
 interface ItemArmazenamento {
+  apagar(): Promise<void>;
 
-    apagar(): Promise<void>;
+  getTamanhoKB(): Promise<number>;
 
-    getTamanhoKB(): Promise<number>;
+  add(item: ItemArmazenamento): Promise<void>;
 
-    add(item: ItemArmazenamento): Promise<void>;
+  remove(item: ItemArmazenamento): Promise<void>;
 
-    remove(item: ItemArmazenamento): Promise<void>;
-
-    getItens(): Promise<ItemArmazenamento[]>;
-
+  getItens(): Promise<ItemArmazenamento[]>;
 }
 
-export { ItemArmazenamento }
+export { ItemArmazenamento };
