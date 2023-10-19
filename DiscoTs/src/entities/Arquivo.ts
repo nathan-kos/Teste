@@ -1,6 +1,6 @@
 import { ItemArmazenamento } from './ItemArmazenamento';
 import { Pasta } from './Pasta';
-const fs = require('fs');
+import fs from 'fs';
 
 class Arquivo implements ItemArmazenamento {
   private nome: string;
