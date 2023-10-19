@@ -69,6 +69,10 @@ class Pasta implements ItemArmazenamento {
   async getItens(): Promise<ItemArmazenamento[]> {
     return this.itens;
   }
+
+  async getTipo(): Promise<string> {
+    return 'pasta';
+  }
 }
 
 export { Pasta };

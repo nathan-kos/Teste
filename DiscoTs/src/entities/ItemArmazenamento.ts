@@ -8,6 +8,8 @@ interface ItemArmazenamento {
   remove(item: ItemArmazenamento): Promise<void>;
 
   getItens(): Promise<ItemArmazenamento[]>;
+
+  getTipo(): Promise<string>;
 }
 
 export { ItemArmazenamento };

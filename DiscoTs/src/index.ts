@@ -66,6 +66,8 @@ async function main() {
   await pasta2.remove(Arquivo1);
 
   console.log(pasta2.getItens());
+
+  console.log(Arquivo1.getTipo());
 }
 
 main();

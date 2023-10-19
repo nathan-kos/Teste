@@ -11,11 +11,14 @@ class Arquivo implements ItemArmazenamento {
 
   private caminho: string;
 
+  private tipo: string;
+
   constructor(nome: string, pastaPai: Pasta, caminho: string) {
     this.setNome(nome);
     this.setPastaPai(pastaPai);
     this.setCaminho(caminho);
     this.setTamanhoKB();
+    this.setTipo();
   }
 
   public getNome(): string {
@@ -75,6 +78,19 @@ class Arquivo implements ItemArmazenamento {
   public async getItens(): Promise<ItemArmazenamento[]> {
     throw new Error('Arquivo não pode retornar itens');
   }
+
+  public async getTipo(): Promise<string> {
+    return this.tipo;
+  }
+
+  private setTipo(): void {
+     
+    const extensao = this.caminho.split('.');
+
+    this.tipo = extensao[extensao.length - 1];
+
+  }
+
 }
 
 export { Arquivo };
