@@ -94,4 +94,9 @@ public class Pasta implements ItemArmazenamento {
     public String toString() {
         return "Pasta: " + this.getNome() + " " + this.getTamanhoKB() + "KB";
     }
+
+    @Override
+    public String getTipo() {
+        return "Pasta";
+    }
 }

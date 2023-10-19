@@ -12,11 +12,14 @@ public class Arquivo implements ItemArmazenamento {
     private Pasta pastaPai;
     private long tamanhoKB;
 
+    private String tipo;
+
     public Arquivo(String nome, String caminho, Pasta pastaPai) {
         this.setNome(nome);
         this.setCaminho(caminho);
         this.setTamanhoKB();
         this.setPastaPai(pastaPai);
+        this.setTipo();
     }
 
     public String getNome() {
@@ -78,7 +81,22 @@ public class Arquivo implements ItemArmazenamento {
 
     @Override
     public String toString() {
-        return "Arquivo: " + this.getNome() + " - " + this.getTamanhoKB() + "KB";
+        return "Arquivo: " + this.getNome() + " - " + this.getTamanhoKB() + "KB" + " - " + this.getTipo();
+    }
+
+    @Override
+    public String getTipo() {
+        return this.tipo;
+    }
+
+    private void setTipo(){
+        String[] split = this.getCaminho().split("\\.");
+
+        if(split.length > 1){
+            this.tipo = split[split.length - 1];
+        }else{
+            this.tipo = "Sem tipo";
+        }
     }
 
 }

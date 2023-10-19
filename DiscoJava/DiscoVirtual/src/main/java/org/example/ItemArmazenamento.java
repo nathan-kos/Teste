@@ -14,4 +14,6 @@ public interface ItemArmazenamento {
 
     public List<ItemArmazenamento> getItens();
 
+    public String getTipo();
+
 }
