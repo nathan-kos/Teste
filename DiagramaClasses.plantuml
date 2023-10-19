@@ -6,6 +6,7 @@
         + addItem(Item item): boolean
         + removeItem(): boolean
         + getItens(): collections<Item>
+        + getTipo(): string
     }
 
     class Pasta{
