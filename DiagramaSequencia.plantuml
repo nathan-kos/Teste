@@ -1,0 +1,25 @@
+@startuml sequence diagram
+title Criação de Pastas e Cálculo de Tamanho
+
+participant User
+participant DiscoVirtual
+participant Pasta
+participant Arquivo
+
+User -> DiscoVirtual: Cria Disco Virtual
+DiscoVirtual -> Pasta: Cria Pasta "root" na Raiz
+User -> Pasta: Cria Pasta "pasta" na Pasta "root"
+User -> Arquivo: Cria Arquivo "pdf padrões de projeto" na Pasta "pasta"
+User -> Pasta: Cria Pasta "pasta2" na Pasta "pasta"
+User -> Arquivo: Cria Arquivo "injeção de dependencia" na Pasta "pasta2"
+
+User -> Pasta: Calcula Tamanho da Pasta "root"
+Pasta -> Pasta: Chama Método getItens()
+Pasta -> Arquivo: Chama Método getTamanhoKB() (pdf padrões de projeto)
+Arquivo --> Pasta: Retorna Tamanho do Arquivo (pdf padrões de projeto)
+Pasta -> Pasta: Chama Método getItens()
+Pasta -> Arquivo: Chama Método getTamanhoKB() (injeção de dependência)
+Arquivo --> Pasta: Retorna Tamanho do Arquivo (injeção de dependência)
+Pasta --> User: Retorna Tamanho Total da Pasta "root"
+
+@enduml
